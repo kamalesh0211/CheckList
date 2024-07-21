@@ -3,18 +3,19 @@ import Footer from "./Components/Footer";
 import Form from "./Components/Form";
 import PageList from "./Components/PageList";
 import "./App.css";
-export const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: true },
-  { id: 2, description: "Socks", quantity: 12, packed: false },
-];
+import {useState} from "react";
 
 function App() {
+  const [items, setItems] = useState([]);
+  const HandleAddItem = (item) => {
+    setItems((items) => [...items, item]);
+  };
   return (
     <>
       <div className="app">
         <Logo />
-        <Form />
-        <PageList />
+        <Form onAddItems={HandleAddItem} />
+        <PageList items={items}/>
         <Footer />
       </div>
     </>
