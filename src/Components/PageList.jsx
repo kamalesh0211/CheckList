@@ -1,16 +1,15 @@
 /* eslint-disable */
 
-
-const PageList = ({items}) => {
+const PageList = ({ items, onDeleteItems }) => {
   return (
     <ul className="list">
       {items.map((item) => (
-        <Item item={item} key={item.id} />
+        <Item item={item} key={item.id}  onDeleteItems={onDeleteItems}/>
       ))}
     </ul>
   );
 };
-function Item({ item }) {
+function Item({ item, onDeleteItems }) {
   return (
     <section className="main-list">
       {" "}
@@ -19,8 +18,10 @@ function Item({ item }) {
           {item.quantity}
           {item.description}
         </span>
+        <button type="button" onClick={onDeleteItems}>
+          X
+        </button>
       </li>
-      <button>X</button>
     </section>
   );
 }

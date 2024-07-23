@@ -1,10 +1,10 @@
+/* eslint-disable */
 
 import { useState } from "react";
 
-const Form = (onAddItems) => {
+const Form = ({ onAddItems }) => {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("1");
- 
 
   const AddArray = (e) => {
     e.preventDefault(); // for preventing Default
